@@ -19,25 +19,22 @@ namespace WindowsFormsApp1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ()
-            {
-
-            }
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string nomeCurso = cmbtNomeCurso.Text;
-            nomeCurso = nomeCurso.Substring(0, 4);
+            //string nomeCurso = cmbtNomeCurso.Text;
+            //nomeCurso = nomeCurso.Substring(0, 4);
 
-            string Horario = cmbHorario.Text;
-            Horario = Horario.Substring(0);
+            //string Horario = cmbHorario.Text;
+            //Horario = Horario.Substring(0);
 
-            Curso curso = new Curso(
-               nomeCurso, Horario, txtValor.Text
-                );
-            curso.Inserir(curso);
-            MessageBox.Show("Professor inserido com sucesso!");
+            //Curso curso = new Curso(
+            //   nomeCurso, Horario, txtValor.Text
+            //    );
+            //curso.Inserir(curso);
+            //MessageBox.Show("Professor inserido com sucesso!");
         }
     }
 }

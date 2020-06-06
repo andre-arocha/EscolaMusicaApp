@@ -106,6 +106,7 @@ namespace WindowsFormsApp1
             aluno.Id = int.Parse(txtId.Text);
             aluno.Nome = txtNome.Text;
             aluno.Sexo = sexo;
+            aluno.Email = txtEmail.Text;
             aluno.Telefone = txtTelefone.Text;
             aluno.Alterar(aluno);
             MessageBox.Show("Aluno Alterado com sucesso!");

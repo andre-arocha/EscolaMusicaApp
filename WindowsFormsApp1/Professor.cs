@@ -60,9 +60,10 @@ namespace WindowsFormsApp1
         public void Alterar(Professor professor)
         {
             MySqlCommand cmd = Banco.AbriConexao();
-            cmd.CommandText = "update tb_professor set nome_professor=@nome_pro, telefone_professor=@telefone_pro where id_professor =@id_pro";
+            cmd.CommandText = "update tb_professor set nome_professor=@nome_pro, email_professor=@email_pro, telefone_professor=@telefone_pro where id_professor =@id_pro";
             cmd.Parameters.Add("@nome_pro", MySqlDbType.VarChar).Value = professor.Nome_pro;
             cmd.Parameters.Add("@id_pro", MySqlDbType.Int32).Value = professor.Id_pro;
+            cmd.Parameters.Add("@email_pro", MySqlDbType.VarChar).Value = professor.Email_pro;
             cmd.Parameters.Add("@telefone_pro", MySqlDbType.VarChar).Value = professor.Telefone_pro;
             cmd.ExecuteNonQuery();
         }

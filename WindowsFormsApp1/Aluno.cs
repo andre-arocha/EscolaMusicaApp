@@ -59,10 +59,11 @@ namespace EscolarMusicApp
         public void Alterar(Aluno aluno)
         {
             MySqlCommand cmd = Banco.AbriConexao();
-            cmd.CommandText = "update tb_aluno set nome_aluno=@nome, sexo_aluno = @sexo, telefone_aluno=@telefone where id_aluno =@id";
+            cmd.CommandText = "update tb_aluno set nome_aluno=@nome, email_aluno=@email, sexo_aluno = @sexo, telefone_aluno=@telefone where id_aluno =@id";
             cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = aluno.Nome;
             cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = aluno.Id;
             cmd.Parameters.Add("@sexo", MySqlDbType.VarChar).Value = aluno.Sexo;
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = aluno.Email;
             cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = aluno.Telefone;
             cmd.ExecuteNonQuery();
         }

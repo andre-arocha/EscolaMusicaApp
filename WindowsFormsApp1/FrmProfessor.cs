@@ -45,6 +45,7 @@ namespace WindowsFormsApp1
             Professor professor = new Professor();
             professor.Id_pro = int.Parse(txtIdPro.Text);
             professor.Nome_pro = txtNomePro.Text;
+            professor.Email_pro = txtEmailPro.Text;
             professor.Telefone_pro = txtTelefonePro.Text;
             professor.Alterar(professor);
             MessageBox.Show("Professor Alterado com sucesso!");
