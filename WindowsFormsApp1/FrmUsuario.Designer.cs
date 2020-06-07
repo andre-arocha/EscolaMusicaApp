@@ -49,6 +49,7 @@
             this.txtSenhaUsu.Name = "txtSenhaUsu";
             this.txtSenhaUsu.Size = new System.Drawing.Size(286, 20);
             this.txtSenhaUsu.TabIndex = 2;
+            this.txtSenhaUsu.UseSystemPasswordChar = true;
             // 
             // label2
             // 
