@@ -12,7 +12,7 @@ namespace WindowsFormsApp1
     {
         public int Id { get; set; }
         public Aluno Aluno { get; set; }
-        public Turma Turma { get; set; }
+        public Curso Curso { get; set; }
         public string Situacao { get; set; }
         public double ValorCurso { get; set; }
         public DateTime DataMatricula { get; set; }
@@ -22,37 +22,36 @@ namespace WindowsFormsApp1
         {
             Aluno = new Aluno();
             Usuario = new Usuario();
-            Turma = new Turma();
+            Curso = new Curso();
 
         }
 
-        public Matricula(int id, Aluno aluno, Turma turma, string situacao, double valorCurso, DateTime dataMatricula, Usuario usuario)
+        public Matricula(int id, Aluno aluno, Curso curso, string situacao, double valorCurso, DateTime dataMatricula, Usuario usuario)
         {
             Id = id;
             Aluno = aluno;
-            Turma = turma;
+            Curso = curso;
             Situacao = situacao;
             ValorCurso = valorCurso;
             DataMatricula = dataMatricula;
             Usuario = usuario;
         }
 
-        public Matricula(Aluno aluno, Turma turma, double valorCurso, Usuario usuario)
+        public Matricula(Aluno aluno, Curso curso, Usuario usuario)
         {
             Aluno = aluno;
-            Turma = turma;
-            ValorCurso = valorCurso;
+            Curso = curso;
             Usuario = usuario;
         }
 
-        public void Inserir()
+        public void Inserir(Aluno aluno, Curso curso, Usuario usuario)
         {
             var cmd = Banco.AbriConexao();
-            cmd.CommandText = "insert tb_matricula values(null, @alunoId,@turmaId,'A',@valorCurso,now(),@idUsuario);";
-            cmd.Parameters.Add("@alunoId", MySqlDbType.Int32).Value = Aluno.Id;
-            cmd.Parameters.Add("@turmaId", MySqlDbType.Int32).Value = Turma.Id;
-            cmd.Parameters.Add("@valorCurso", MySqlDbType.Decimal).Value = Turma.Curso.Valor_curso;
-            cmd.Parameters.Add("@usuarioId", MySqlDbType.Int32).Value = Usuario.Id_usuario;
+            cmd.CommandText = "insert tb_matricula values(null, @alunoId, @cursoId, 'A', @valorCurso, now(), @idUsuario);";
+            cmd.Parameters.Add("@alunoId", MySqlDbType.Int32).Value = aluno.Id;
+            cmd.Parameters.Add("@cursoId", MySqlDbType.Int32).Value = curso.Id_curso;
+            cmd.Parameters.Add("@valorCurso", MySqlDbType.Decimal).Value = curso.Valor_curso;
+            cmd.Parameters.Add("@usuarioId", MySqlDbType.Int32).Value = usuario.Id_usuario;
             cmd.ExecuteNonQuery();
             cmd.CommandText = "select @@identity";
             Id = Convert.ToInt32(cmd.ExecuteScalar());

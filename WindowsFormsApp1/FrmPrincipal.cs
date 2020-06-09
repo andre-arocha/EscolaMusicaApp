@@ -41,11 +41,11 @@ namespace WindowsFormsApp1
         {
             FrmUsuario frmLogin = new FrmUsuario();
             frmLogin.ShowDialog();
-            if (Program.usuarioLogado!=null)
+            if (Program.usuarioLogado != null)
             {
                 Text = "FrmPrincipal - " + Program.usuarioLogado.Nome_usuario;
             }
-            
+
         }
 
         private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,6 +53,13 @@ namespace WindowsFormsApp1
             FrmCurso frmCurso = new FrmCurso ();
             frmCurso.MdiParent = this;
             frmCurso.Show();
+        }
+
+        private void matriculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMatricula frmMatricula = new FrmMatricula();
+            frmMatricula.MdiParent = this;
+            frmMatricula.Show();
         }
     }
 }

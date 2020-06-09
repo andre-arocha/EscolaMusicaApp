@@ -68,28 +68,28 @@
             // alunosToolStripMenuItem
             // 
             this.alunosToolStripMenuItem.Name = "alunosToolStripMenuItem";
-            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.alunosToolStripMenuItem.Text = "&Alunos";
             this.alunosToolStripMenuItem.Click += new System.EventHandler(this.alunosToolStripMenuItem_Click);
             // 
             // professorToolStripMenuItem
             // 
             this.professorToolStripMenuItem.Name = "professorToolStripMenuItem";
-            this.professorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.professorToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.professorToolStripMenuItem.Text = "&Professor";
             this.professorToolStripMenuItem.Click += new System.EventHandler(this.professorToolStripMenuItem_Click);
             // 
             // cursosToolStripMenuItem
             // 
             this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
-            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.cursosToolStripMenuItem.Text = "&Cursos";
             this.cursosToolStripMenuItem.Click += new System.EventHandler(this.cursosToolStripMenuItem_Click);
             // 
             // usuáriosToolStripMenuItem
             // 
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.usuáriosToolStripMenuItem.Text = "Usuário";
             // 
             // operaçõesToolStripMenuItem
@@ -103,8 +103,9 @@
             // matriculoToolStripMenuItem
             // 
             this.matriculoToolStripMenuItem.Name = "matriculoToolStripMenuItem";
-            this.matriculoToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.matriculoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.matriculoToolStripMenuItem.Text = "&Matricula";
+            this.matriculoToolStripMenuItem.Click += new System.EventHandler(this.matriculoToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 

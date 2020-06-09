@@ -12,24 +12,23 @@ namespace WindowsFormsApp1
     {
         public int Id_curso { get; set; }
         public string Nome_curso { get; set; }
-        public string CargaHoraria_curso { get; set; }
-        public string Valor_curso { get; set; }
+        public int CargaHoraria_curso { get; set; }
+        public double Valor_curso { get; set; }
 
         public Curso()
         {
-
+            CargaHoraria_curso = 0;
         }
-
-        public Curso(string nome_curso, string cargaHoraria_curso, string valor_curso)
+        public Curso(int id_curso, string nome_curso, int cargaHoraria_curso, double valor_curso)
         {
+            Id_curso = id_curso;
             Nome_curso = nome_curso;
             CargaHoraria_curso = cargaHoraria_curso;
             Valor_curso = valor_curso;
         }
 
-        public Curso(int id_curso, string nome_curso, string cargaHoraria_curso, string valor_curso)
+        public Curso(string nome_curso, int cargaHoraria_curso, double valor_curso)
         {
-            Id_curso = id_curso;
             Nome_curso = nome_curso;
             CargaHoraria_curso = cargaHoraria_curso;
             Valor_curso = valor_curso;
@@ -69,8 +68,8 @@ namespace WindowsFormsApp1
                 cursos.Add(
                     new Curso(dr.GetInt32(0),
                         dr.GetString(1),
-                        dr.GetString(2),
-                        dr.GetString(3)
+                        dr.GetInt32(2),
+                        dr.GetDouble(3)
                         ));
             }
             return cursos;
@@ -85,8 +84,8 @@ namespace WindowsFormsApp1
             {
                 Id_curso = dr.GetInt32(0);
                 Nome_curso = dr.GetString(1);
-                CargaHoraria_curso = dr.GetString(2);
-                Valor_curso = dr.GetString(3);
+                CargaHoraria_curso = dr.GetInt32(2);
+                Valor_curso = dr.GetDouble(3);
             }
         }
     }
