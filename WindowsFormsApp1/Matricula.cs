@@ -1,5 +1,6 @@
 ﻿using EscolarMusicApp;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,7 @@ namespace WindowsFormsApp1
         public void Inserir(Aluno aluno, Curso curso, Usuario usuario)
         {
             var cmd = Banco.AbriConexao();
-            cmd.CommandText = "insert tb_matricula values(null, @alunoId, @cursoId, 'A', @valorCurso, now(), @idUsuario);";
+            cmd.CommandText = "insert tb_matricula values(null, @alunoId, @cursoId, 'A', @valorCurso, now(), @usuarioId);";
             cmd.Parameters.Add("@alunoId", MySqlDbType.Int32).Value = aluno.Id;
             cmd.Parameters.Add("@cursoId", MySqlDbType.Int32).Value = curso.Id_curso;
             cmd.Parameters.Add("@valorCurso", MySqlDbType.Decimal).Value = curso.Valor_curso;
@@ -55,6 +56,14 @@ namespace WindowsFormsApp1
             cmd.ExecuteNonQuery();
             cmd.CommandText = "select @@identity";
             Id = Convert.ToInt32(cmd.ExecuteScalar());
+        }
+
+        public MySqlDataReader ListarAtivas()
+        {
+            var cmd = Banco.AbriConexao();
+            cmd.CommandText = "select Id_matricula as ID, nome_aluno as Aluno, nome_curso as Curso, " +
+                "data_matricula as Data from vw_matricula where situacao = 'A' ";
+            return cmd.ExecuteReader();
         }
 
     }

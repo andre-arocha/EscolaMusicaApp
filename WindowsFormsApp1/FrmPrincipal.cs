@@ -45,7 +45,10 @@ namespace WindowsFormsApp1
             {
                 Text = "FrmPrincipal - " + Program.usuarioLogado.Nome_usuario;
             }
-
+            else
+            {
+                Application.Exit();
+            }
         }
 
         private void cursosToolStripMenuItem_Click(object sender, EventArgs e)

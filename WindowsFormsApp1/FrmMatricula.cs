@@ -25,17 +25,39 @@ namespace WindowsFormsApp1
 
         private void FrmMatricula_Load(object sender, EventArgs e)
         {
+            dgvMatricula.Rows.Clear();
+
+            // preenche o comboBox cmbCurso com a lista dos alunos, e valorado com ID
             Aluno aluno = new Aluno();
             var listaAluno = aluno.ListarTodos();
             cmbAluno.DataSource = listaAluno;
             cmbAluno.DisplayMember = "Nome";
             cmbAluno.ValueMember = "Id";
 
+            // preenche o comboBox cmbCurso com a lista dos cursos, e valorado com ID
             Curso curso = new Curso();
             var listaCurso = curso.ListarTodos();
             cmbCurso.DataSource = listaCurso;
             cmbCurso.DisplayMember = "Nome_curso";
             cmbCurso.ValueMember = "Id_curso";
+
+            // prreenche o datafrid com os dados das matriuclas ativas ()
+            Matricula matricula = new Matricula();
+            //var dr = matricula.ListarAtivas();
+            DataTable dt = new DataTable();
+            //dt.Load(matricula.ListarAtivas());
+            //dgvMatricula.DataSource = dt;
+            var dr = matricula.ListarAtivas();
+            int i = 0;
+            while (dr.Read())
+            {
+                dgvMatricula.Rows.Add();
+                dgvMatricula.Rows[i].Cells[0].Value = dr.GetValue(0);
+                dgvMatricula.Rows[i].Cells[1].Value = dr.GetValue(1);
+                dgvMatricula.Rows[i].Cells[2].Value = dr.GetValue(2);
+                dgvMatricula.Rows[i].Cells[3].Value = dr.GetValue(3);
+                i++;
+            }
 
         }
 
@@ -51,8 +73,8 @@ namespace WindowsFormsApp1
             matricula.Inserir(aluno, curso, Program.usuarioLogado);
 
             MessageBox.Show("Matrícula realizada com sucesso.");
+            FrmMatricula_Load(sender,e);
         }
-
 
     }
 }
