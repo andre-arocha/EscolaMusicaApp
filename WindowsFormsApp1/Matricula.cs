@@ -66,5 +66,25 @@ namespace WindowsFormsApp1
             return cmd.ExecuteReader();
         }
 
+        public MySqlDataReader ListarRelacoesAtivas()
+        {
+            var cmd = Banco.AbriConexao();
+            cmd.CommandText = "select " +
+                "id_matricula as IdMatricula, " +
+                "id_aluno as IdAluno, " +
+                "nome_aluno as Aluno," +
+                "email_aluno as Email, " +
+                "telefone_aluno as Telefone, " +
+                "id_curso as IdCurso, " +
+                "nome_curso as Curso, " +
+                "carga_horaria_curso as Carga_Horaria, " +
+                "valor_curso as Valor, " +
+                "id_professor as IdProfessor, " +
+                "nome_professor as professor, " +
+                "data_matricula as Data " +
+                "from vw_relacoes where situacao = 'A' ";
+            return cmd.ExecuteReader();
+        }
+
     }
 }

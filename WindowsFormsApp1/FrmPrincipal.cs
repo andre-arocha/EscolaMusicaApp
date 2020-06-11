@@ -64,5 +64,26 @@ namespace WindowsFormsApp1
             frmMatricula.MdiParent = this;
             frmMatricula.Show();
         }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUsuario frmLogin = new FrmUsuario();
+            frmLogin.ShowDialog();
+            if (Program.usuarioLogado != null)
+            {
+                Text = "FrmPrincipal - " + Program.usuarioLogado.Nome_usuario;
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
+
+        private void alunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRelacoes frmrelacoes = new FrmRelacoes();
+            frmrelacoes.MdiParent = this;
+            frmrelacoes.Show();
+        }
     }
 }

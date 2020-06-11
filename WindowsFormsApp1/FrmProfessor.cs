@@ -17,13 +17,15 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        // Botão adicionar professor
+        private void buttonADD_Click(object sender, EventArgs e)
         {
             Professor professor = new Professor(
-                txtNomePro.Text, txtCpfPro.Text, txtEmailPro.Text, txtTelefonePro.Text
-                );
+               txtNomePro.Text, txtCpfPro.Text, txtEmailPro.Text, txtTelefonePro.Text
+               );
             professor.Inserir(professor);
             MessageBox.Show("Professor inserido com sucesso!");
+            this.LimparCampos();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,33 +37,33 @@ namespace WindowsFormsApp1
         {
             txtIdPro.Clear();
             txtNomePro.Clear();
+            txtNomePro1.Clear();
             txtCpfPro.Clear();
             txtEmailPro.Clear();
+            txtEmailPro1.Clear();
             txtTelefonePro.Clear();
+            txtTelefonePro1.Clear();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        // Botão alterar professor
+        private void buttaoALTERAR_Click(object sender, EventArgs e)
         {
             Professor professor = new Professor();
             professor.Id_pro = int.Parse(txtIdPro.Text);
-            professor.Nome_pro = txtNomePro.Text;
-            professor.Email_pro = txtEmailPro.Text;
-            professor.Telefone_pro = txtTelefonePro.Text;
+            professor.Nome_pro = txtNomePro1.Text;
+            professor.Email_pro = txtEmailPro1.Text;
+            professor.Telefone_pro = txtTelefonePro1.Text;
             professor.Alterar(professor);
             MessageBox.Show("Professor Alterado com sucesso!");
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
+        // Burcar professores por ID
+        private void buttonBUSCARID_Click(object sender, EventArgs e)
         {
             if (txtIdPro.ReadOnly == true)
             {
                 txtIdPro.ReadOnly = false;
-                button3.Text = "Buscar";
+                buttonBUSCARID.Text = "Buscar";
 
                 txtIdPro.Focus();
                 LimparCampos();
@@ -74,10 +76,9 @@ namespace WindowsFormsApp1
                     professor.ObterPorId(int.Parse(txtIdPro.Text));
                     if (professor.Id_pro > 0)
                     {
-                        txtNomePro.Text = professor.Nome_pro;
-                        txtCpfPro.Text = professor.Cpf_pro;
-                        txtEmailPro.Text = professor.Email_pro;
-                        txtTelefonePro.Text = professor.Telefone_pro;
+                        txtNomePro1.Text = professor.Nome_pro;
+                        txtEmailPro1.Text = professor.Email_pro;
+                        txtTelefonePro1.Text = professor.Telefone_pro;
                     }
                     else
                     {
@@ -93,7 +94,8 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        // Botão Listar todos os professor cadastrados
+        private void button9_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
             Professor professor = new Professor();
@@ -103,5 +105,20 @@ namespace WindowsFormsApp1
                     item.Email_pro + " - " + item.DataCadastro_pro);
             }
         }
+
+        // Botão fechar
+        private void buttonFECHAR_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void buttonFECHAR1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void buttonFECHAR2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

@@ -25,23 +25,8 @@ namespace WindowsFormsApp1
 
         private void FrmMatricula_Load(object sender, EventArgs e)
         {
+            // prreenche o Datagrid com os dados da relações das matriculas ativas ()
             dgvMatricula.Rows.Clear();
-
-            // preenche o comboBox cmbCurso com a lista dos alunos, e valorado com ID
-            Aluno aluno = new Aluno();
-            var listaAluno = aluno.ListarTodos();
-            cmbAluno.DataSource = listaAluno;
-            cmbAluno.DisplayMember = "Nome";
-            cmbAluno.ValueMember = "Id";
-
-            // preenche o comboBox cmbCurso com a lista dos cursos, e valorado com ID
-            Curso curso = new Curso();
-            var listaCurso = curso.ListarTodos();
-            cmbCurso.DataSource = listaCurso;
-            cmbCurso.DisplayMember = "Nome_curso";
-            cmbCurso.ValueMember = "Id_curso";
-
-            // prreenche o datafrid com os dados das matriuclas ativas ()
             Matricula matricula = new Matricula();
             //var dr = matricula.ListarAtivas();
             DataTable dt = new DataTable();

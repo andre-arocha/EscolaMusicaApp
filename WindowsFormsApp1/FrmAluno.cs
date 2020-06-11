@@ -18,7 +18,15 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        // Foco cursos da pagina
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            txtId.Focus();
+            txtNome.Focus();
+        }
+
+        // Botão pra Adicionar aluno
+        private void buttonADD_Click(object sender, EventArgs e)
         {
             string sexo = cmbSexo.Text;
             sexo = sexo.Substring(0, 1);
@@ -27,38 +35,43 @@ namespace WindowsFormsApp1
                 );
             aluno.Inserir(aluno);
             MessageBox.Show("Aluno inserido com sucesso!");
+            this.LimparCampos();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        // Listar Todos os alunos cadastrados os alunos cadastrados  no ListBox
+        private void button9_Click(object sender, EventArgs e)
         {
-            txtId.Focus();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            listBox2.Items.Clear();
+            listBox1.Items.Clear();
             Aluno aluno = new Aluno();
             foreach (var item in aluno.ListarTodos())
             {
-                listBox2.Items.Add(item.Id + " - " + item.Nome + " - " +
+                listBox1.Items.Add(item.Id + " - " + item.Nome + " - " +
                     item.Email + " - " + item.DataCadastro);
             }
         }
+
+        // Limpar todos as caixas de texto
         private void LimparCampos()
         {
             txtId.Clear();
             txtNome.Clear();
+            txtNome1.Clear();
             txtCpf.Clear();
             txtEmail.Clear();
+            txtEmail1.Clear();
             txtTelefone.Clear();
+            txtTelefone1.Clear();
             cmbSexo.Text = "";
+            cmbSexo1.Text = "";
         }
-        private void button3_Click(object sender, EventArgs e)
+
+        // botão buscar por ID
+        private void buttonBUSCARID_Click(object sender, EventArgs e)
         {
             if (txtId.ReadOnly == true)
             {
                 txtId.ReadOnly = false;
-                button3.Text = "Buscar";
+                buttonBUSCARID.Text = "Buscar";
 
                 txtId.Focus();
                 LimparCampos();
@@ -71,18 +84,17 @@ namespace WindowsFormsApp1
                     aluno.ObterPorId(int.Parse(txtId.Text));
                     if (aluno.Id > 0)
                     {
-                        txtNome.Text = aluno.Nome;
-                        txtCpf.Text = aluno.Cpf;
+                        txtNome1.Text = aluno.Nome;
                         if (aluno.Sexo == "M")
                         {
-                            cmbSexo.SelectedIndex = 0;
+                            cmbSexo1.SelectedIndex = 0;
                         }
                         else
                         {
-                            cmbSexo.SelectedIndex = 1;
+                            cmbSexo1.SelectedIndex = 1;
                         }
-                        txtEmail.Text = aluno.Email;
-                        txtTelefone.Text = aluno.Telefone;
+                        txtEmail1.Text = aluno.Email;
+                        txtTelefone1.Text = aluno.Telefone;
                     }
                     else
                     {
@@ -98,24 +110,40 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        // Botão alterra aluno
+        private void buttaoALTERAR_Click(object sender, EventArgs e)
         {
-            string sexo = cmbSexo.Text;
+            string sexo = cmbSexo1.Text;
             sexo = sexo.Substring(0, 1);
             Aluno aluno = new Aluno();
             aluno.Id = int.Parse(txtId.Text);
-            aluno.Nome = txtNome.Text;
+            aluno.Nome = txtNome1.Text;
             aluno.Sexo = sexo;
-            aluno.Email = txtEmail.Text;
-            aluno.Telefone = txtTelefone.Text;
+            aluno.Email = txtEmail1.Text;
+            aluno.Telefone = txtTelefone1.Text;
             aluno.Alterar(aluno);
             MessageBox.Show("Aluno Alterado com sucesso!");
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        // Botão fechar pagina
+        private void buttonFECHAR_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        private void buttonFECHAR1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonFECHAR2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

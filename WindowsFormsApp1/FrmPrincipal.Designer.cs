@@ -37,6 +37,7 @@
             this.operaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matriculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -91,6 +92,7 @@
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
             this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.usuáriosToolStripMenuItem.Text = "Usuário";
+            this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
             // 
             // operaçõesToolStripMenuItem
             // 
@@ -103,15 +105,24 @@
             // matriculoToolStripMenuItem
             // 
             this.matriculoToolStripMenuItem.Name = "matriculoToolStripMenuItem";
-            this.matriculoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.matriculoToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.matriculoToolStripMenuItem.Text = "&Matricula";
             this.matriculoToolStripMenuItem.Click += new System.EventHandler(this.matriculoToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
+            this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alunoToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.relatóriosToolStripMenuItem.Text = "&Relatórios";
+            // 
+            // alunoToolStripMenuItem
+            // 
+            this.alunoToolStripMenuItem.Name = "alunoToolStripMenuItem";
+            this.alunoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alunoToolStripMenuItem.Text = "Relações";
+            this.alunoToolStripMenuItem.Click += new System.EventHandler(this.alunoToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -153,5 +164,6 @@
         private System.Windows.Forms.ToolStripMenuItem matriculoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alunoToolStripMenuItem;
     }
 }

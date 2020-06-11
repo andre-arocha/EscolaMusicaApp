@@ -126,6 +126,12 @@
     <Compile Include="FrmProfessor.Designer.cs">
       <DependentUpon>FrmProfessor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRelacoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelacoes.Designer.cs">
+      <DependentUpon>FrmRelacoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProfessor.resx">
       <DependentUpon>FrmProfessor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelacoes.resx">
+      <DependentUpon>FrmRelacoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
@@ -200,6 +209,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\teclado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete - Copia.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Adicionar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete .jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

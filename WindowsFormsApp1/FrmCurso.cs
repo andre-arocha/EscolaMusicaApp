@@ -18,8 +18,8 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        // CURSOS
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        // Lista de cursos
+        private void cmbNomeCurso_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbNomeCurso.SelectedIndex == 0) // Violão
             {
@@ -53,8 +53,8 @@ namespace WindowsFormsApp1
             }
         }
 
-        // GRAVAR CURSOS
-        private void button1_Click(object sender, EventArgs e)
+        // Adicionar curso
+        private void buttonADD_Click(object sender, EventArgs e)
         {
             int horario = Convert.ToInt32(txtHorario.Text);
             double valor = Convert.ToDouble(txtValor.Text);
@@ -66,11 +66,10 @@ namespace WindowsFormsApp1
             MessageBox.Show("Curso inserido com sucesso!");
         }
 
-        // ALTERAR CURSOS
-        private void button4_Click(object sender, EventArgs e)
+        // Botão alterar cursos
+        private void buttaoALTERAR_Click(object sender, EventArgs e)
         {
-            int valor = Convert.ToInt32(txtValor.Text);
-
+            double valor = Convert.ToDouble(txtValor1.Text); 
             Curso curso = new Curso();
             curso.Id_curso = int.Parse(txtIdCurso.Text);
             curso.Nome_curso = cmbNomeCurso.Text;
@@ -79,23 +78,25 @@ namespace WindowsFormsApp1
             MessageBox.Show("Curso alterado com sucesso!");
         }
 
-        // LIMPAR CAMPOS
+        // Limpar campos oo curso
         public void LimparCampos()
         {
             txtIdCurso.Clear();
             cmbNomeCurso.Text = "";
+            cmbNomeCurso1.Text = "";
             txtHorario.Clear();
             txtValor.Clear();
+            txtValor1.Clear();
         }
 
-       
-        // BUSCAR POR ID
-        private void button3_Click(object sender, EventArgs e)
+
+        // Botão buscra cursos por ID
+        private void buttonBUSCARID_Click(object sender, EventArgs e)
         {
             if (txtIdCurso.ReadOnly == true)
             {
                 txtIdCurso.ReadOnly = false;
-                button3.Text = "Buscar";
+                buttonBUSCARID.Text = "Buscar";
 
                 txtIdCurso.Focus();
                 LimparCampos();
@@ -108,17 +109,39 @@ namespace WindowsFormsApp1
                     curso.ObterPorId(int.Parse(txtIdCurso.Text));
                     if (curso.Id_curso > 0)
                     {
-                        cmbNomeCurso.Text = curso.Nome_curso;
-                        int horario = Convert.ToInt32(txtHorario.Text);
+                        if (curso.Nome_curso== "Violão")
+                        {
+                            cmbNomeCurso1.SelectedIndex = 0;
+                        }
+                        else if (curso.Nome_curso == "Guitarra")
+                        {
+                            cmbNomeCurso1.SelectedIndex = 1;
+                        }
+                        else if (curso.Nome_curso == "Baixo")
+                        {
+                            cmbNomeCurso1.SelectedIndex = 2;
+                        }
+                        else if (curso.Nome_curso == "Bateria")
+                        {
+                            cmbNomeCurso1.SelectedIndex = 3;
+                        }
+                        else if (curso.Nome_curso == "Teclado")
+                        {
+                            cmbNomeCurso1.SelectedIndex = 4;
+                        }
+                        else
+                        {
+                            cmbNomeCurso1.SelectedIndex = 5;
+                        }
                         double valor = Convert.ToDouble(txtValor.Text);
-                        horario = curso.CargaHoraria_curso;
-                        valor = curso.Valor_curso;
+                        curso.Valor_curso = valor;
                     }
                     else
                     {
                         MessageBox.Show("Curso não cadastrado!");
                     }
                     txtIdCurso.ReadOnly = true;
+                    txtIdCurso.Focus();
                 }
                 else
                 {
@@ -128,13 +151,8 @@ namespace WindowsFormsApp1
             }
         }
 
-        // FECHAR TABELA CURSO
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        // Botão listar todos
+        private void button9_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
             Curso curso = new Curso();
@@ -144,5 +162,23 @@ namespace WindowsFormsApp1
                     item.CargaHoraria_curso + " - " + item.Valor_curso);
             }
         }
+        
+
+        // BotÃO fechar tabela
+        private void buttonFECHAR_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonFECHAR1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonFECHAR2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
